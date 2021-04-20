@@ -19,13 +19,20 @@
 <!-- Navigation Bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">О, да, вторсырье!</a>
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash"
+                 viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
+            О, да, вторсырье!
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">О нас</a>
@@ -46,9 +53,15 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
                        aria-expanded="false">СоцСети</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="#">Инстграм</a></li>
-                        <li><a class="dropdown-item" href="#">Вк</a></li>
-                        <li><a class="dropdown-item" href="#">Ютуб</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/instagram.svg' %}"
+                                                                            alt="Instagram" width="20" height="20"></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/vk-logo.svg' %}"
+                                                                      alt="Instagram" width="20" height="20"></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/youtube.svg' %}"
+                                                                        alt="Instagram" width="20" height="20"></a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -73,6 +86,18 @@
             return this.href === location.href;
         }).addClass('active');
     });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
