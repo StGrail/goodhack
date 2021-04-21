@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
-          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <title>О, да, вторсырье!</title>
 
@@ -44,25 +43,10 @@
                     <a class="nav-link" href="#">Отчеты</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Статистика</a>
+                    <a class="nav-link" href="# ">Статистика</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
-                       aria-expanded="false">СоцСети</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/instagram.svg' %}"
-                                                                            alt="Instagram" width="20" height="20"></a>
-                        </li>
-                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/vk-logo.svg' %}"
-                                                                      alt="Instagram" width="20" height="20"></a>
-                        </li>
-                        <li><a class="dropdown-item" href="#"><img src="{% static 'svg/youtube.svg' %}"
-                                                                        alt="Instagram" width="20" height="20"></a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -75,36 +59,16 @@
 </body>
 
 <!-- Bootstrap core JavaScript -->
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+<script src="{% static 'jquery/jquery.slim.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
 <!-- Highlight current page on NavBar -->
 <script>
     $(function () {
-        $('nav-item li a').filter(function () {
+        $('nav li a').filter(function () {
             return this.href === location.href;
         }).addClass('active');
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 </html>
