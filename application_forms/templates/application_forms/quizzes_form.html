@@ -1,0 +1,24 @@
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container my-3">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="text-center border-bottom mb-3">Заявка на проведение викторин для школьников</legend>
+            <div class="my-3">«О, да, вторсырье!» — это эколого-просветительский проект, главная тема которого — отходы
+                и их переработка. Девиз проекта: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!»
+                Одно из мероприятий проекта — викторины для школьных команд в формате квиза. В ходе викторины ученики
+                5-7 кл. в игровом формате узнают важные и иногда шокирующие факты на тему отходов и переработки. Малая
+                викторина: 45 мин. на 1 класс. Большой формат: 1,5 часа на 50-100 детей.
+            </div>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="text-center">
+            <button class="btn btn-outline-success" type="submit">Подать заявку</button>
+        </div>
+    </form>
+
+</div>
+{% endblock content %}
