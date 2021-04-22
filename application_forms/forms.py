@@ -14,11 +14,11 @@ class ExhibitionApplicationForm(ModelForm):
         self.fields['exhibition_date'].widget = SelectDateWidget()
 
 
-class QuizzesForm(ModelForm):
+class QuizzesApplicationForm(ModelForm):
     class Meta:
         model = QuizzesForStudentsApplication
         exclude = ['completed']
 
     def __init__(self, *args, **kwargs):
-        super(QuizzesForm, self).__init__(*args, **kwargs)
+        super(QuizzesApplicationForm, self).__init__(*args, **kwargs)
         self.fields['exhibition_date'].widget = SelectDateWidget()
