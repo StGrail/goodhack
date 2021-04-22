@@ -21,6 +21,7 @@ class ExhibitionApplicationView(View):
             return redirect('index')
         else:
             form = self.form_class()
+            messages.warning(request, 'Произошла ошибка. Заполните заявку еще раз.')
 
         return render(request, self.template_name, {'form': form})
 
