@@ -20,7 +20,7 @@ class ExhibitionApplication(models.Model):
                                        max_length=100,
                                        choices=ORGANIZER,
                                        default='Лично')
-    exhibition_date = models.DateTimeField(verbose_name='Когда примерно хотите организовывать выставку?')
+    exhibition_date = models.DateField(verbose_name='Когда примерно хотите организовывать выставку?')
     exhibition_place = models.CharField(verbose_name='Где хотите провести выставку?', max_length=100)
     completed = models.BooleanField(verbose_name='Проведена ли выставка?', default=False)
 
@@ -58,7 +58,7 @@ class QuizzesForStudentsApplication(models.Model):
                                    max_length=50,
                                    choices=QUIZ_TYPES,
                                    default='Малая')
-    exhibition_date = models.DateTimeField(verbose_name='Когда примерно хотите организовывать выставку?')
+    exhibition_date = models.DateField(verbose_name='Когда примерно хотите организовывать выставку?')
     exhibition_place = models.CharField(verbose_name='Где хотите провести выставку?', max_length=100)
     completed = models.BooleanField(verbose_name='Проведена ли ворина?', default=False)
 
