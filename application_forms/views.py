@@ -7,6 +7,7 @@ from application_forms.forms import ExhibitionApplicationForm, QuizzesApplicatio
 
 class ExhibitionApplicationView(View):
     form_class = ExhibitionApplicationForm
+
     template_name = 'application_forms/exhibition_form.html'
 
     def get(self, request):
@@ -41,6 +42,7 @@ class QuizzesApplicationView(View):
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
             return redirect('index')
         else:
+            messages.warning(request, 'Произошла ошибка. Заполните заявку еще раз.')
             form = self.form_class()
 
         return render(request, self.template_name, {'form': form})

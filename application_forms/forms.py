@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from django.forms.widgets import SelectDateWidget
+from django.forms.widgets import SelectDateWidget, Select
 
 from .models import ExhibitionApplication, QuizzesForStudentsApplication
 
@@ -8,17 +8,14 @@ class ExhibitionApplicationForm(ModelForm):
     class Meta:
         model = ExhibitionApplication
         exclude = ['completed']
-
-    def __init__(self, *args, **kwargs):
-        super(ExhibitionApplicationForm, self).__init__(*args, **kwargs)
-        self.fields['exhibition_date'].widget = SelectDateWidget()
+        widgets = {'date': SelectDateWidget()}
 
 
 class QuizzesApplicationForm(ModelForm):
     class Meta:
         model = QuizzesForStudentsApplication
         exclude = ['completed']
-
-    def __init__(self, *args, **kwargs):
-        super(QuizzesApplicationForm, self).__init__(*args, **kwargs)
-        self.fields['exhibition_date'].widget = SelectDateWidget()
+        widgets = {'date': SelectDateWidget(),
+                   'quiz_format': Select(choices=QuizzesForStudentsApplication.QUIZ_TYPES,
+                                         ),
+                   }
