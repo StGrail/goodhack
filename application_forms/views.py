@@ -7,7 +7,6 @@ from application_forms.forms import ExhibitionApplicationForm, QuizzesApplicatio
 
 class ExhibitionApplicationView(View):
     form_class = ExhibitionApplicationForm
-
     template_name = 'application_forms/exhibition_form.html'
 
     def get(self, request):
