@@ -21,7 +21,6 @@ class ExhibitionApplicationView(View):
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
             return redirect('index')
         else:
-            print(form.cleaned_data)
             form = self.form_class()
             messages.warning(request, 'Произошла ошибка. Заполните заявку еще раз.')
 
@@ -43,7 +42,6 @@ class QuizzesApplicationView(View):
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
             return redirect('index')
         else:
-            print(form.cleaned_data)
             messages.warning(request, 'Произошла ошибка. Заполните заявку еще раз.')
             form = self.form_class()
 
