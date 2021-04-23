@@ -10,7 +10,7 @@ class BaseApplicationFormAdmin(admin.ModelAdmin):
     """
     fieldsets = (
         ('Данные заявителя', {
-            'fields': ('name', 'surname', 'city', 'contacts', 'registration_date')
+            'fields': ('name', 'surname', 'city', 'contacts')
         }),
         ('Данные о выставке', {
             'fields': ('who_is_organize', 'date', 'place'),
@@ -34,7 +34,7 @@ class ExhibitionAdmin(BaseApplicationFormAdmin):
 class QuizzesAdmin(BaseApplicationFormAdmin):
     fieldsets = (
         ('Данные заявителя', {
-            'fields': ('name', 'surname', 'city', 'contacts', 'registration_date')
+            'fields': ('name', 'surname', 'city', 'contacts')
         }),
         ('Данные о выставке', {
             'fields': ('who_is_organize', 'quiz_format', 'date', 'place'),
