@@ -1,3 +1,5 @@
+from django.utils.timezone import now
+
 from django.db import models
 
 
@@ -25,6 +27,7 @@ class Event(models.Model):
                                        default='Лично')
     date = models.DateField(verbose_name='Когда примерно хотите организовывать выставку?')
     place = models.CharField(verbose_name='Где хотите провести выставку?', max_length=100)
+    registration_date = models.DateField(verbose_name='Дата подачи заявки', default=now())
     completed = models.BooleanField(verbose_name='Проведена ли выставка?', default=False)
 
     def __str__(self):
