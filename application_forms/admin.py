@@ -3,6 +3,11 @@ from django.contrib import admin
 from .models import QuizzesForStudentsApplication, ExhibitionApplication
 
 
+@admin.action(description='Отметить выбранные мероприятия как проведенные')
+def make_completed(modeladmin, request, queryset):
+    queryset.update(completed=True)
+
+
 class BaseApplicationFormAdmin(admin.ModelAdmin):
     """
     Базовый класс для заявок на выставки и школьные викторины.
@@ -23,6 +28,7 @@ class BaseApplicationFormAdmin(admin.ModelAdmin):
         'name', 'surname', 'city', 'contacts', 'who_is_organize', 'place', 'date', 'registration_date', 'completed')
     list_filter = ['completed', 'registration_date']
     ordering = ['-registration_date']
+    actions = [make_completed]
 
 
 @admin.register(ExhibitionApplication)
