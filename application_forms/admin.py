@@ -20,6 +20,9 @@ class BaseApplicationFormAdmin(admin.ModelAdmin):
         ('Данные о выставке', {
             'fields': ('who_is_organize', 'date', 'place'),
         }),
+        ('Дополнительная информация (опционально)', {
+            'fields': ('notes',)
+        }),
         ('Поставьте галочку, если провели мероприятие', {
             'fields': ('completed',),
         })
@@ -44,6 +47,9 @@ class QuizzesAdmin(BaseApplicationFormAdmin):
         }),
         ('Данные о выставке', {
             'fields': ('who_is_organize', 'quiz_format', 'date', 'place'),
+        }),
+        ('Дополнительная информация (опционально)', {
+            'fields': ('notes',)
         }),
         ('Поставьте галочку, если провели мероприятие', {
             'fields': ('completed',),
