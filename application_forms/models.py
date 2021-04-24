@@ -29,6 +29,9 @@ class Event(models.Model):
     place = models.CharField(verbose_name='Где хотите провести выставку?', max_length=100)
     registration_date = models.DateTimeField(verbose_name='Дата подачи заявки', auto_now_add=True)
     completed = models.BooleanField(verbose_name='Проведена ли выставка?', default=False)
+    notes = models.TextField(verbose_name='Дополнительная информация от заявителя', blank=True)
+    notes_for_admin = models.TextField(
+        verbose_name='Примечания (как продвигались, где нашли ресурсы на выставку, кто поддержал)', blank=True)
 
     def __str__(self):
         return f'{self.name} {self.surname}, контакты - {self.contacts}, город - {self.city}, ' \
