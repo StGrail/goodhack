@@ -36,8 +36,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">О нас</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Отчеты</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuReports" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Отчеты
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{% url 'exhibition_reports' %}">Отчеты о проведении
+                            выставок</a></li>
+                        <li><a class="dropdown-item" href="{% url 'quizzes_reports' %}">Отчеты о проведении
+                            викторин</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="# ">Статистика</a>
@@ -46,7 +55,7 @@
                     <a class="nav-link" href="#">Контакты</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuApplicationForms" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Подать заявку
                     </a>
@@ -92,6 +101,10 @@
             return this.href === location.href;
         }).addClass('active');
     });
+
+
+
+
 </script>
 
 </html>

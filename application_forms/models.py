@@ -1,5 +1,3 @@
-from django.utils.timezone import now
-
 from django.db import models
 
 
@@ -10,7 +8,7 @@ class Event(models.Model):
     """
 
     ORGANIZER = [
-        ('Лично', 'Вы лично (активист)'),
+        ('Активист', 'Вы лично (активист)'),
         ('Волонтерское движение', 'Волонтерское движение'),
         ('НКО', 'НКО'),
         ('Образовательное учреждение', 'Образовательное учреждение'),
@@ -21,15 +19,16 @@ class Event(models.Model):
     surname = models.CharField(verbose_name='Фамилия', max_length=50)
     city = models.CharField(verbose_name='Город', max_length=50)
     contacts = models.CharField(verbose_name='Контакты', max_length=100)
-    who_is_organize = models.CharField(verbose_name='Кто будет организатором выставки?',
+    who_is_organize = models.CharField(verbose_name='Организатор мероприятия',
                                        max_length=100,
                                        choices=ORGANIZER,
-                                       default='Лично')
-    date = models.DateField(verbose_name='Когда примерно хотите организовывать выставку?')
-    place = models.CharField(verbose_name='Где хотите провести выставку?', max_length=100)
+                                       default='Активист')
+    place = models.CharField(verbose_name='Место проведения мероприятия?', max_length=100)
+    date = models.DateField(verbose_name='Примерная дата мероприятие?')
     registration_date = models.DateTimeField(verbose_name='Дата подачи заявки', auto_now_add=True)
-    completed = models.BooleanField(verbose_name='Проведена ли выставка?', default=False)
     notes = models.TextField(verbose_name='Дополнительная информация от заявителя', blank=True)
+    completed = models.BooleanField(verbose_name='Проведено ли мероприятие?', default=False)
+    event_date = models.DateField(verbose_name='Дата проведения мероприятия', blank=True)
 
     def __str__(self):
         return f'{self.name} {self.surname}, контакты - {self.contacts}, город - {self.city}, ' \
@@ -37,6 +36,10 @@ class Event(models.Model):
 
 
 class ExhibitionApplication(Event):
+    visitors_number = models.PositiveIntegerField(verbose_name='Количество посетителей', blank=True)
+    link = models.CharField(verbose_name='Группа/встреча выставки', max_length=255, blank=True)
+    additional_info = models.TextField(verbose_name='Примечания', blank=True)
+
     class Meta:
         verbose_name_plural = 'заявки на проведение выставок'
         verbose_name = 'заявку на проведение выставки'
@@ -49,10 +52,12 @@ class QuizzesForStudentsApplication(Event):
         ('Оба варианта', 'Оба варианта'),
     ]
 
-    quiz_format = models.CharField(verbose_name='Какой формат викторин интересует?',
+    quiz_format = models.CharField(verbose_name='Формат викторины',
                                    max_length=50,
                                    choices=QUIZ_TYPES,
-                                   default='Малая')
+                                   default='Малая викторина 45 мин. на класс')
+    link = models.CharField(verbose_name='Ссылки на фото/видео/отчеты', max_length=255, blank=True)
+    visitors_number = models.PositiveIntegerField(verbose_name='Количество участвующих детей', blank=True)
 
     class Meta:
         verbose_name_plural = 'заявки на проведение викторин для школьников'

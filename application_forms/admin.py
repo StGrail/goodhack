@@ -18,14 +18,14 @@ class BaseApplicationFormAdmin(admin.ModelAdmin):
             'fields': ('name', 'surname', 'city', 'contacts')
         }),
         ('Данные о выставке', {
-            'fields': ('who_is_organize', 'date', 'place'),
-        }),
-        ('Дополнительная информация (опционально)', {
-            'fields': ('notes',)
+            'fields': ('who_is_organize', 'date', 'place', 'notes'),
         }),
         ('Поставьте галочку, если провели мероприятие', {
             'fields': ('completed',),
-        })
+        }),
+        ('Отчет о проведении', {
+            'fields': ('visitors_number', 'link', 'additional_info', 'event_date'),
+        }),
     )
     list_display = (
         'name', 'surname', 'city', 'contacts', 'who_is_organize', 'place', 'date', 'registration_date', 'completed')
@@ -45,13 +45,13 @@ class QuizzesAdmin(BaseApplicationFormAdmin):
         ('Данные заявителя', {
             'fields': ('name', 'surname', 'city', 'contacts')
         }),
-        ('Данные о выставке', {
-            'fields': ('who_is_organize', 'quiz_format', 'date', 'place'),
-        }),
-        ('Дополнительная информация (опционально)', {
-            'fields': ('notes',)
+        ('Данные о викторине', {
+            'fields': ('who_is_organize', 'quiz_format', 'date', 'place', 'notes'),
         }),
         ('Поставьте галочку, если провели мероприятие', {
             'fields': ('completed',),
-        })
+        }),
+        ('Отчет о проведении', {
+            'fields': ('visitors_number', 'link', 'event_date'),
+        }),
     )
