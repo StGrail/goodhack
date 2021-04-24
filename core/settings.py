@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     'web',
     'application_forms',
+    'reports',
 ]
 
 MIDDLEWARE = [
