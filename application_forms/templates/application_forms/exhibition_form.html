@@ -2,68 +2,165 @@
 {% extends 'web/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container my-3">
-    <fieldset class="form-group">
-        <legend class="text-center border-bottom mb-3">Заявка на проведение выставки</legend>
-        <div class="my-3">«О, да, вторсырье!» — это эколого-просветительский проект, главная тема которого — отходы и их
-            переработка. Девиз проекта: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!» Одно из
-            мероприятий проекта — выставка 40 плакатов на тему раздельного сбора. Плакаты разбиваются на 4 блока:
-            проблема отходов, борьба с отходами, переработка как решение, сокращение отходов. Все плакаты сделаны в
-            стиле комиксов, подают информацию наглядно, просто и с юмором.
+<form class="row g-3" method="POST">
+    {% csrf_token %}
+    <div class="row justify-content-center mt-3">
+        <div class="card col-lg-7 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
+            <img src="/static/img/main_logo.png" alt="image" style="background-size: cover;">
         </div>
+    </div>
 
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="max-width: 100rem; border-radius: 10px;">
+            <div class="row">
+                <div class="card-header bg-secondary text-center text-white" style="border-radius: 10px 10px 0px 0px;">
+                    Заявка на проведение выставки
+                </div>
+            </div>
+            <div class="my-3 text-center">«О, да, вторсырье!» — это эколого-просветительский проект, главная тема
+                которого — отходы и их
+                переработка. Девиз проекта: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!» Одно
+                из
+                мероприятий проекта — выставка 40 плакатов на тему раздельного сбора. Плакаты разбиваются на 4 блока:
+                проблема отходов, борьба с отходами, переработка как решение, сокращение отходов. Все плакаты сделаны в
+                стиле комиксов, подают информацию наглядно, просто и с юмором.
+            </div>
+        </div>
+    </div>
 
-        <div class="container">
-            <form class="row g-3" method="POST">
-                {% csrf_token %}
-                <div class="col-md-6">
-                    <label for="name" class="form-label">Имя</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Иван" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="surname" class="form-label">Фамилия</label>
-                    <input name="surname" type="text" class="form-control" id="surname" placeholder="Иванов" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="city" class="form-label">Город</label>
-                    <input name="city" type="text" class="form-control" id="city" placeholder="Санкт-Петербург"
-                           required>
-                </div>
-                <div class="col-md-6">
-                    <label for="vk/email" class="form-label">Вк или email</label>
-                    <input name="contacts" type="text" class="form-control" id="vk/email"
-                           placeholder="ivanivan@email.ru"
-                           required>
-                </div>
-                <div class="col-md-6">
-                    <label for="who_is_organize" class="form-label">Кто будет организатором выставки?</label>
-                    <select name="who_is_organize" id="who_is_organize" class="form-select" required>
-                        <option selected value="Активист">Вы лично (активист)</option>
-                        <option value="Волонтерское движение">Волонтерское движение детей</option>
-                        <option value="НКО">НКО</option>
-                        <option value="Образовательное учреждение">Образовательное учреждение</option>
-                        <option value="Молодежная организация">Молодежная организация</option>
-                        <option value="Администрация города/района">Администрация города/района</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="date" class="form-label">Когда примерно хотите организовывать выставку?</label>
-                    <input name="date" type="date" class="form-control" id="date" required>
-                </div>
-                <div class="col-lg">
-                    <label for="place" class="form-label">Где хотите провести выставку?</label>
-                    <input name="place" type="text" class="form-control" id="place" placeholder="Школа/Вуз/Другое"
-                           required>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 offset-md-5">
-                        <button class="btn btn-outline-success my-3" type="submit">Подать заявку</button>
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="name" class="col-sm-4 col-form-label mx-1 mt-1">Имя</label>
+                    <div class="field">
+                        <input name="name" type="text" class="form-input my-2" id="name" placeholder="Иван" required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,не менее четырех символов.
+                        </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </fieldset>
-</div>
+    </div>
 
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="surname" class="col-sm-6 col-form-label mx-1 mt-1">Фамилия</label>
+                    <div class="field">
+                        <input name="surname" type="text" class="form-input my-2" id="surname" placeholder="Иванов"
+                               required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,не менее четырех символов.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="city" class="col-sm-4 col-form-label mx-1 mt-1">Город</label>
+                    <div class="field">
+                        <input name="city" type="text" class="form-input my-2" id="city" placeholder="Санкт-Петербург"
+                               required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,не менее четырех символов.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="vk/email" class="col-sm-6 col-form-label mx-1 mt-1">Вк или email</label>
+                    <div class="field">
+                        <input name="contacts" type="text" class="form-input my-2" id="vk/email"
+                               placeholder="email@email.net" required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,неверный формат email.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-6 my-3">
+                    <label for="who_is_organize" class="col-sm-6 col-form-label mx-1 mt-1">Организатор</label>
+                    <div class="field">
+                        <select name="who_is_organize" id="who_is_organize" class="form-select" required>
+                            <option selected value="Активист">Вы лично (активист)</option>
+                            <option value="Волонтерское движение">Волонтерское движение детей</option>
+                            <option value="НКО">НКО</option>
+                            <option value="Образовательное учреждение">Образовательное учреждение</option>
+                            <option value="Молодежная организация">Молодежная организация</option>
+                            <option value="Администрация города/района">Администрация города/района</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="date" class="col-md-12 col-form-label mx-1 mt-1">Когда хотите организовывать
+                        выставку?</label>
+                    <div class="field">
+                        <input name="date" type="date" class="form-input my-2" id="date" required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,неверный формат даты.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="card col-lg-7 bg-light mb-3" style="border-radius: 10px;">
+            <div class="row justify-content-start">
+                <div class="col-md-4 my-3">
+                    <label for="place" class="col-md-12 col-form-label mx-1 mt-1">Где хотите провести выставку?</label>
+                    <div class="field">
+                        <input name="place" type="text" class="form-input my-2" id="place"
+                               placeholder="Школа/Вуз/Другое" required>
+                        <div class="line my-1"></div>
+                        <div class="invalid-tooltip mt-2">
+                            * Обязательное поле ,не менее четырех символов.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-7 mb-3">
+            <button class="btn btn-lg btn-secondary my-4" type="submit">Подать заявку</button>
+        </div>
+    </div>
+</form>
 
 {% endblock content %}

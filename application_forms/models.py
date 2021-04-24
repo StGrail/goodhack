@@ -36,7 +36,7 @@ class Event(models.Model):
 
 
 class ExhibitionApplication(Event):
-    visitors_number = models.PositiveIntegerField(verbose_name='Количество посетителей', blank=True)
+    visitors_number = models.PositiveIntegerField(verbose_name='Количество посетителей', blank=True, default=0)
     link = models.CharField(verbose_name='Группа/встреча выставки', max_length=255, blank=True)
     additional_info = models.TextField(verbose_name='Примечания', blank=True)
 
@@ -57,7 +57,7 @@ class QuizzesForStudentsApplication(Event):
                                    choices=QUIZ_TYPES,
                                    default='Малая викторина 45 мин. на класс')
     link = models.CharField(verbose_name='Ссылки на фото/видео/отчеты', max_length=255, blank=True)
-    visitors_number = models.PositiveIntegerField(verbose_name='Количество участвующих детей', blank=True)
+    visitors_number = models.PositiveIntegerField(verbose_name='Количество участвующих детей', blank=True, default=0)
 
     class Meta:
         verbose_name_plural = 'заявки на проведение викторин для школьников'
