@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
     let regexMap = {
-        name: new RegExp("^.{4,}$"),
-        surname: new RegExp("^.{4,}$"),
-        city: new RegExp("^.{4,}$"),
-        'vk/email': new RegExp("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])"),
-        place: new RegExp("^.{4,}$"),
+        name: new RegExp("^.{3,}$"),
+        surname: new RegExp("^.{3,}$"),
+        city: new RegExp("^.{3,}$"),
+        'vk/email': new RegExp("^.{3,}$"),
+        place: new RegExp("^.{3,}$"),
         date: new RegExp("^(\\d{4}\-)(\\d{2}\-)(\\d{2})$"),
     }
 
