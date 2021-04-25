@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         error_div.setAttribute('style', 'display: none');
     }
 
+    function removeFocusOutError(line, error_div) {
+        error_div.setAttribute('style', 'display: none');
+    }
+
     function focusInEmptyInput() {
         let line = this.nextElementSibling;
         let error_div = line.nextElementSibling;
@@ -38,6 +42,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let regex = regexMap[this.id]
         if (!regex.test(this.value)) {
             setInvalidRegx(line, error_div)
+            removeFocusOutError(line, error_div)
         } else {
             setValidRegx(line, error_div)
         }
