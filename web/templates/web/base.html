@@ -14,7 +14,8 @@
     <title>О, да, вторсырье!</title>
 
 </head>
-<body style="background-color: #b7dbb9;">
+<!--<body style="background-color: #b7dbb9;">-->
+<body>
 
 <!-- Navigation Bar-->
 <!--<body style="background-color: #b7dbb9;">-->
@@ -87,7 +88,16 @@
             {% endif %}
         </div>
     </div>
-    {% block content %}{% endblock %}
+    <div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="my-3">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </main>
 
