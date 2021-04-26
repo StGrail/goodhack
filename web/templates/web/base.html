@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">О нас</a>
+                    <a class="nav-link" href="{% url 'index' %}">Главная</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuReports" role="button"
@@ -61,9 +61,11 @@
                     <a class="nav-link" href="# ">Отчеты</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">О нас</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
                 </li>
-
             </ul>
         </div>
     </div>
@@ -83,14 +85,12 @@
         </div>
     </div>
     <div class="container">
-    <div class="row">
-        <div class="card">
+        <div class="row">
             <div class="my-3">
                 {% block content %}{% endblock %}
             </div>
         </div>
     </div>
-</div>
 
 
 </main>
@@ -113,6 +113,8 @@
             return this.href === location.href;
         }).addClass('active');
     });
+
+
 </script>
 
 </html>
