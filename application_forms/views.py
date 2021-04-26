@@ -53,7 +53,7 @@ class QuizzesApplicationView(View):
 
 class ExhibitionReportsView(ListView):
     model = ExhibitionApplication
-    template_name = 'reports/exhibition_reports.html'
+    template_name = 'tables/exhibition_table.html'
 
     def get_queryset(self):
         queryset = ExhibitionApplication.objects.filter(completed=True).values()
@@ -62,7 +62,7 @@ class ExhibitionReportsView(ListView):
 
 class QuizzesReportsView(ListView):
     model = QuizzesForStudentsApplication
-    template_name = 'reports/quizzes_reports.html'
+    template_name = 'tables/quizzes_table.html'
 
     def get_queryset(self):
         queryset = QuizzesForStudentsApplication.objects.filter(completed=True).values()
