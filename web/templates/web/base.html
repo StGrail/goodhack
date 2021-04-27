@@ -72,9 +72,9 @@
 </nav>
 
 <!-- Main Content-->
-<main role="main" class="container my-3">
-    <div class="row">
-        <div class="col">
+<main role="main" class="container">
+    <div class="row  justify-content-center">
+        <div class="col-lg-9 bg-white" style="border-radius: 10px; background-size: 100%;">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }} text-center">
@@ -85,14 +85,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="my-3">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
+        {% block content %}{% endblock %}
     </div>
-
-
 </main>
 
 </body>
@@ -113,6 +107,7 @@
             return this.href === location.href;
         }).addClass('active');
     });
+
 
 
 </script>
