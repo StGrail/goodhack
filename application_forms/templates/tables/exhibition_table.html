@@ -1,0 +1,53 @@
+<!doctype html>
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+    <div class="card-header">Описание</div>
+    <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Город</th>
+                <th>Организатор</th>
+                <th>Дата выставки</th>
+                <th>Место выставки</th>
+                <th>Группа выставки</th>
+                <th>Количество посетителей</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for exhibition in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ exhibition.name }}</td>
+                <td>{{ exhibition.surname }}</td>
+                <td>{{ exhibition.city }}</td>
+                <td>{{ exhibition.who_is_organize}}</td>
+                <td>{{ exhibition.event_date }}</td>
+                <td>{{ exhibition.place }}</td>
+                <td>{{ exhibition.link }}</td>
+                <td>{{ exhibition.visitors_number }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan=5>Пока что мы не провели ни одной выставки.<br>
+                    Для подачи заявки на проведение выставки нажмите <a href="{% url 'exhibition_application_form' %}">сюда</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
