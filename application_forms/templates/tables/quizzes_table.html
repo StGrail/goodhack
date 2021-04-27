@@ -6,45 +6,47 @@
 <div class="card my-3">
     <div class="card-header">Описание</div>
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>№</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Город</th>
-            <th>Организатор</th>
-            <th>Дата выставки</th>
-            <th>Место выставки</th>
-            <th>Группа выставки</th>
-            <th>Количество посетителей</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for quiz in object_list %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ quiz.name }}</td>
-            <td>{{ quiz.surname }}</td>
-            <td>{{ quiz.city }}</td>
-            <td>{{ quiz.who_is_organize}}</td>
-            <td>{{ quiz.event_date }}</td>
-            <td>{{ quiz.place }}</td>
-            <td>{{ quiz.link }}</td>
-            <td>{{ quiz.visitors_number }}</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan=5>Пока что мы не провели ни одной викторины.<br>
-                Для подачи заявки на проведение викторины нажмите <a href="{% url 'quizzes_application_form' %}">сюда</a>
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Город</th>
+                <th>Организатор</th>
+                <th>Дата выставки</th>
+                <th>Место выставки</th>
+                <th>Группа выставки</th>
+                <th>Количество посетителей</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for quiz in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ quiz.name }}</td>
+                <td>{{ quiz.surname }}</td>
+                <td>{{ quiz.city }}</td>
+                <td>{{ quiz.who_is_organize}}</td>
+                <td>{{ quiz.event_date }}</td>
+                <td>{{ quiz.place }}</td>
+                <td>{{ quiz.link }}</td>
+                <td>{{ quiz.visitors_number }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan=5>Пока что мы не провели ни одной викторины.<br>
+                    Для подачи заявки на проведение викторины нажмите <a href="{% url 'quizzes_application_form' %}">сюда</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
 {% endblock %}
