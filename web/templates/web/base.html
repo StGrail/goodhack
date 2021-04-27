@@ -14,11 +14,9 @@
     <title>О, да, вторсырье!</title>
 
 </head>
-<!--<body style="background-color: #b7dbb9;">-->
 <body>
 
 <!-- Navigation Bar-->
-<!--<body style="background-color: #b7dbb9;">-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">
@@ -51,10 +49,10 @@
                         Подать заявку
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{% url 'exhibition_application_form' %}">Заявка на
-                            выставку</a></li>
-                        <li><a class="dropdown-item" href="{% url 'quizzes_application_form' %}">Заявка на
-                            викторину</a></li>
+                        <li><a class="dropdown-item" href="{% url 'exhibition_application_form' %}">Заявка на проведение
+                            выставки</a></li>
+                        <li><a class="dropdown-item" href="{% url 'quizzes_application_form' %}">Заявка на проведение
+                            викторины</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -107,9 +105,6 @@
             return this.href === location.href;
         }).addClass('active');
     });
-
-
-
 </script>
 
 </html>
