@@ -4,10 +4,14 @@ from reports.models import Report
 
 
 class ReportsList(ListView):
-    queryset = Report.objects.filter(status="Опубликовано").order_by('-created_on')
-    template_name = "reports/reports.html"
+    queryset = Report.objects.filter(status='Опубликовано')
+    template_name = 'reports/reports.html'
+    paginate_by = 5
 
 
 class ReportDetail(DetailView):
     model = Report
-    template_name = 'post_detail.html'
+    template_name = 'reports/report.html'
+
+    def get_object(self, queryset=None):
+        return Report.objects.get(id=self.kwargs.get("id"))
