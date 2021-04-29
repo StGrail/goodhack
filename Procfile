@@ -1,1 +1,1 @@
-web: web: python manage.py runserver --log-file -
+web: python manage.py runserver --log-file -
