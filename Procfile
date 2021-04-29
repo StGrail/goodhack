@@ -1,1 +1,1 @@
-web: sh -c 'python manage.py runserver'
+web: gunicorn core.wsgi
