@@ -2,10 +2,8 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-import django_heroku
 
 load_dotenv()
-django_heroku.settings(locals())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,6 +50,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+
+STATIC_LESS_CSS = os.path.join(BASE_DIR, 'static_less_css')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
@@ -59,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             TEMPLATES_DIR,
+            STATIC_LESS_CSS,
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,7 +125,6 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / "static"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_PRECOMPILER_COMPILERS = (
@@ -143,9 +143,6 @@ STATICFILES_FINDERS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [
-    MEDIA_ROOT,
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
