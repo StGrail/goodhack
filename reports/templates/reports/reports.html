@@ -6,20 +6,28 @@
 
 <div class="row justify-content-center mt-3">
     <div class="card col-lg-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
-        <img src="{% static 'img/main_logo.png'  %}" alt="image" style="background-size: cover;">
+        <img src="{% static 'img/main_logo.png' %}" alt="image" style="background-size: cover;">
         <div class="row justify-content-center">
             <div class="card-header bg-secondary text-center text-white" style="border-radius: 10px 10px 0px 0px;">
                 Отчеты о проведнеии выставок и викторин
             </div>
+
             {% for report in object_list %}
             <div class="card col-lg-10 my-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ report.title }}</h5>
-                    <img src="..." class="card-img-top" alt="...">
-                    <p class="card-text">{{ report.content|linebreaks }}</p>
-                    <a href="/reports/{{ report.id }}" class="btn btn-outline-secondary btn-sm">Прочитать
-                        полностью</a>
-                    <p class="card-text"><small class="text-muted">{{ report.created_on|date }}</small></p>
+                    <hr>
+                    <p class="card-text">{{ report.content|slice:":249" }}...</p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card-text"><small class="text-muted">{{ report.created_on|date }}</small>
+                            </div>
+                        </div>
+                        <div class="col offset-md-4">
+                            <a href="/reports/{{ report.id }}" class="btn btn-outline-secondary btn-sm">Прочитать
+                                полностью</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -30,7 +38,8 @@
             <ul class="pagination pagination-sm justify-content-center">
                 {% if page_obj.has_previous %}
                 <li class="page-item"><a class="page-link" href="?page=1">&laquo;</a></li>
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Назад</a>
+                <li class="page-item"><a class="page-link"
+                                         href="?page={{ page_obj.previous_page_number }}">Назад</a>
                 </li>
                 {% endif %}
 
@@ -43,8 +52,10 @@
                 {% endfor %}
 
                 {% if page_obj.has_next %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперед</a></li>
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперед</a>
+                </li>
+                <li class="page-item"><a class="page-link"
+                                         href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
                 </li>
                 {% endif %}
             </ul>
