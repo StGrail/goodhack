@@ -12,6 +12,7 @@
                 Отчеты о проведении выставок и викторин
             </div>
 
+            {% if object_list %}
             {% for report in object_list %}
             <div class="card col-lg-10 my-3">
                 <div class="card-body">
@@ -60,6 +61,11 @@
                 {% endif %}
             </ul>
         </nav>
+        {% else %}
+        <div class="card-text text-center my-3">
+            Пока что не создано ни одного отчета о проведении мероприятия :(
+        </div>
+        {% endif %}
     </div>
 </div>
 
