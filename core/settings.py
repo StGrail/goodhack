@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-LESSC_ROOT = os.path.join(BASE_DIR, 'node_modules/less/bin/lessc')
+LESSC_ROOT = os.path.join(BASE_DIR, 'node_modules/.bin/lessc')
 STATIC_PRECOMPILER_COMPILERS = (
     ('static_precompiler.compilers.LESS', {
         "executable": LESSC_ROOT,
