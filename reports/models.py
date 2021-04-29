@@ -1,17 +1,16 @@
 from django.db import models
 
-TITLE = (
-    ("Выставка", "Выставка"),
-    ("Викторина", "Викторина")
-)
-
-STATUS = (
-    ("Черновик", "Черновик"),
-    ("Опубликовано", "Опубликовано")
-)
-
 
 class Report(models.Model):
+    STATUS = (
+        ("Черновик", "Черновик"),
+        ("Опубликовано", "Опубликовано")
+    )
+    TITLE = (
+        ("Выставка", "Выставка"),
+        ("Викторина", "Викторина")
+    )
+
     title = models.CharField(verbose_name='Название', max_length=200, unique=True)
     content = models.TextField(verbose_name='Текст')
     created_on = models.DateTimeField(auto_now_add=True)
@@ -35,5 +34,5 @@ class ReportImage(models.Model):
         verbose_name_plural = 'фотографии к отчетам'
         verbose_name = 'фотография'
 
-    def __str__(self):
-        return self.post.report.title
+    def post(self):
+        print('Save')

@@ -6,56 +6,34 @@
 
 <div class="row justify-content-center mt-3">
     <div class="card col-lg-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
+        <img src="{% static 'img/main_logo.png' %}" alt="image" style="background-size: cover;">
         <div class="card-body">
             <div class="card-header">
-                <h5>{{ object.title }}</h5>
+
+                <h5>{{ report.title }}</h5>
                 <small class="text-muted">{{ report.type }}</small>
             </div>
 
-            <!--Carousel with photos-->
-            {% if image %}
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{% static 'img/team_photo.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'img/team.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'img/team2_photo.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            {% else %}
-            {% endif %}
-
             <!--Text-->
-            <p class="card-text my-3">{{ object.content | safe }}</p>
+            <p class="card-text my-3">{{ report.content | safe }}</p>
+            <p class="text-muted">{{ report.created_on | date }}</p>
 
-            <p class=" text-muted mt-3">{{ object.created_on | date }}</p>
-
+            <!--Carousel with photos-->
             <div class="row justify-content-center">
+                <div class="col offset-lg-1">
+                    {% if photos %}
+
+                    {% for img in photos %}
+                    <img src="{{ img.images.url }}" class="img-thumbnail my-1" width="600" height="600">
+                    {% endfor %}
+
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row justify-content-center my-3">
                 <div class="col-auto">
-                    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary btn-sm">Назад</a>
+                    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary">Назад</a>
                 </div>
             </div>
         </div>
