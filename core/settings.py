@@ -53,7 +53,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'core.urls'
 
 
-STATIC_LESS_CSS = os.path.join(BASE_DIR, 'static_less_css')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
@@ -61,7 +60,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             TEMPLATES_DIR,
-            STATIC_LESS_CSS,
         ],
         'APP_DIRS': True,
         'OPTIONS': {
