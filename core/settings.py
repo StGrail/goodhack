@@ -135,7 +135,7 @@ STATIC_URL = '/static/'
 
 STATIC_PRECOMPILER_COMPILERS = (
     ('static_precompiler.compilers.LESS', {
-        "executable": ".heroku/node/bin/lessc",
+        "executable": "app/.heroku/node/bin/lessc",
         "sourcemap_enabled": True,
         "global_vars": {"link-color": "red"},
     }),
