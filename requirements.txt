@@ -8,6 +8,7 @@ Django==3.2
 django-appconf==1.0.4
 django-compressor==2.4.1
 django-crispy-forms==1.11.2
+django-heroku==0.3.1
 django-static-precompiler==2.0
 flake8==3.9.1
 flake8-django==1.1.1
