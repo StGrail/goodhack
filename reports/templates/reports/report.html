@@ -13,6 +13,7 @@
             </div>
 
             <!--Carousel with photos-->
+            {% if image %}
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -44,13 +45,14 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            {% else %}
+            {% endif %}
 
             <!--Text-->
             <p class="card-text my-3">{{ object.content | safe }}</p>
 
-            <div class="row">
-                <p class=" text-muted text-center mt-3">{{ object.created_on | date }}</p>
-            </div>
+            <p class=" text-muted mt-3">{{ object.created_on | date }}</p>
+
             <div class="row justify-content-center">
                 <div class="col-auto">
                     <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary btn-sm">Назад</a>
