@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi --log-file -
+web: sh -c 'python manage.py runserver'
