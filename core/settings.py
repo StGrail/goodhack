@@ -132,7 +132,7 @@ STATICFILES_DIRS = (
 # LESSC_ROOT = os.path.join(BASE_DIR, 'usr/bin/less')
 STATIC_PRECOMPILER_COMPILERS = (
     ('static_precompiler.compilers.LESS', {
-        "executable": LESSC_ROOT,
+        "executable": 'usr/bin/less',
         "sourcemap_enabled": True,
         "global_vars": {"link-color": "red"},
     }),
