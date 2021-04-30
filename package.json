@@ -1,0 +1,19 @@
+{
+  "name": "goodhack",
+  "version": "1.0.0",
+  "description": "Проект для online hackathon [хакатондобра.рф](хакатондобра.рф).",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StGrail/goodhack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StGrail/goodhack/issues"
+  },
+  "homepage": "https://github.com/StGrail/goodhack#readme"
+}
