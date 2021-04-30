@@ -132,7 +132,7 @@ STATICFILES_DIRS = (
 # LESS_ROOT = os.path.join(BASE_DIR, 'usr/bin/less')
 STATIC_PRECOMPILER_COMPILERS = (
     ('static_precompiler.compilers.LESS', {
-        "executable": "app/node_modules/.bin/lessc",
+        "executable": "/app/.heroku/node/bin/lessc",
         "sourcemap_enabled": True,
         "global_vars": {"link-color": "red"},
     }),
