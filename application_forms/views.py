@@ -51,7 +51,7 @@ class QuizzesApplicationView(View):
         return render(request, self.template_name, {'form': form})
 
 
-class ExhibitionReportsView(ListView):
+class ExhibitionTableView(ListView):
     model = ExhibitionApplication
     template_name = 'tables/exhibition_table.html'
 
@@ -60,7 +60,7 @@ class ExhibitionReportsView(ListView):
         return queryset
 
 
-class QuizzesReportsView(ListView):
+class QuizzesTableView(ListView):
     model = QuizzesForStudentsApplication
     template_name = 'tables/quizzes_table.html'
 
