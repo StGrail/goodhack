@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
-    'static_precompiler',
+    # 'static_precompiler',
 
     'web',
     'application_forms',
