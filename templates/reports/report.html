@@ -1,0 +1,44 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<div class="row justify-content-center mt-3">
+    <div class="card col-lg-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
+        <img src="{% static 'img/main_logo.png' %}" alt="image" style="background-size: cover;">
+        <div class="card-body">
+            <div class="card-header">
+
+                <h5>{{ report.title }}</h5>
+                <small class="text-muted">{{ report.type }}</small>
+            </div>
+
+            <!--Text-->
+            <p class="card-text my-3">{{ report.content | safe }}</p>
+            <p class="text-muted">{{ report.created_on | date }}</p>
+
+            <!--Carousel with photos-->
+            <div class="row justify-content-center">
+                <div class="col offset-lg-1">
+                    {% if photos %}
+
+                    {% for img in photos %}
+                    <img src="{{ img.images.url }}" class="img-thumbnail my-1" width="600" height="600">
+                    {% endfor %}
+
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row justify-content-center my-3">
+                <div class="col-auto">
+                    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
