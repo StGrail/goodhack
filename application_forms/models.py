@@ -28,7 +28,7 @@ class Event(models.Model):
     registration_date = models.DateTimeField(verbose_name='Дата подачи заявки', auto_now_add=True)
     notes = models.TextField(verbose_name='Дополнительная информация от заявителя', blank=True)
     completed = models.BooleanField(verbose_name='Проведено ли мероприятие?', default=False)
-    event_date = models.DateField(verbose_name='Дата проведения мероприятия', blank=True)
+    event_date = models.DateField(verbose_name='Дата проведения мероприятия', blank=True, null=True)
 
     def __str__(self):
         return f'{self.name} {self.surname}, контакты - {self.contacts}, город - {self.city}, ' \
