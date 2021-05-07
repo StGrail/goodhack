@@ -9,29 +9,29 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>№</th>
-                <th>Город</th>
-                <th>Организатор</th>
-                <th>Дата выставки</th>
-                <th>Место выставки</th>
-                <th>Группа выставки</th>
-                <th>Количество посетителей</th>
+                <th class="text-center">№</th>
+                <th class="text-center">Город</th>
+                <th class="text-center">Организатор</th>
+                <th class="text-center">Дата викторины</th>
+                <th class="text-center">Место викторины</th>
+                <th class="text-center">Количество участников</th>
+                <th class="text-center">Отчет о викторине</th>
             </tr>
             </thead>
             <tbody>
             {% for quiz in object_list %}
             <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ quiz.city }}</td>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td class="text-center">{{ quiz.city }}</td>
                 {% if quiz.who_is_organize == 'Активист' %}
-                <td>{{ quiz.who_is_organize }} {{ quiz.surname }} {{ quiz.name }}</td>
+                <td class="text-center">{{ quiz.who_is_organize }}<br>{{ quiz.surname }} {{ quiz.name }}</td>
                 {% else %}
-                <td>{{ quiz.who_is_organize }}</td>
+                <td class="text-center">{{ quiz.who_is_organize }}</td>
                 {% endif %}
-                <td>{{ quiz.event_date }}</td>
-                <td>{{ quiz.place }}</td>
+                <td class="text-center">{{ quiz.event_date }}</td>
+                <td class="text-center">{{ quiz.place }}</td>
+                <td class="text-center">{{ quiz.visitors_number }}</td>
                 <td>{{ quiz.link }}</td>
-                <td>{{ quiz.visitors_number }}</td>
             </tr>
             {% empty %}
             <tr>

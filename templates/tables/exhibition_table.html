@@ -9,29 +9,29 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>№</th>
-                <th>Город</th>
-                <th>Организатор</th>
-                <th>Дата выставки</th>
-                <th>Место выставки</th>
-                <th>Группа выставки</th>
-                <th>Количество посетителей</th>
+                <th class="text-center">№</th>
+                <th class="text-center">Город</th>
+                <th class="text-center">Организатор</th>
+                <th class="text-center">Дата выставки</th>
+                <th class="text-center">Место выставки</th>
+                <th class="text-center">Количество участников</th>
+                <th class="text-center">Отчет о выставке</th>
             </tr>
             </thead>
             <tbody>
             {% for exhibition in object_list %}
             <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ exhibition.city }}</td>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td class="text-center">{{ exhibition.city }}</td>
                 {% if exhibition.who_is_organize == 'Активист' %}
-                <td>{{ exhibition.who_is_organize }} {{ exhibition.surname }} {{ exhibition.name }}</td>
+                <td class="text-center">{{ exhibition.who_is_organize }}<br>{{ exhibition.surname }} {{ exhibition.name }}</td>
                 {% else %}
-                <td>{{ exhibition.who_is_organize }}</td>
+                <td class="text-center">{{ exhibition.who_is_organize }}</td>
                 {% endif %}
-                <td>{{ exhibition.event_date }}</td>
-                <td>{{ exhibition.place }}</td>
+                <td class="text-center">{{ exhibition.event_date }}</td>
+                <td class="text-center">{{ exhibition.place }}</td>
+                <td class="text-center">{{ exhibition.visitors_number }}</td>
                 <td>{{ exhibition.link }}</td>
-                <td>{{ exhibition.visitors_number }}</td>
             </tr>
             {% empty %}
             <tr>
