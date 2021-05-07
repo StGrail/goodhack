@@ -10,8 +10,6 @@
             <thead>
             <tr>
                 <th>№</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
                 <th>Город</th>
                 <th>Организатор</th>
                 <th>Дата выставки</th>
@@ -24,10 +22,12 @@
             {% for quiz in object_list %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ quiz.name }}</td>
-                <td>{{ quiz.surname }}</td>
                 <td>{{ quiz.city }}</td>
-                <td>{{ quiz.who_is_organize}}</td>
+                {% if quiz.who_is_organize == 'Активист' %}
+                <td>{{ quiz.who_is_organize }} {{ quiz.surname }} {{ quiz.name }}</td>
+                {% else %}
+                <td>{{ quiz.who_is_organize }}</td>
+                {% endif %}
                 <td>{{ quiz.event_date }}</td>
                 <td>{{ quiz.place }}</td>
                 <td>{{ quiz.link }}</td>
