@@ -11,4 +11,3 @@ class AboutView(TemplateView):
 
 class ContactsView(TemplateView):
     template_name = "web/contacts.html"
-
