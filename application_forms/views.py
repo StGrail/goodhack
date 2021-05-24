@@ -1,7 +1,8 @@
 from django.contrib import messages
+from django.db.models import Sum
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from application_forms.forms import ExhibitionApplicationForm, QuizzesApplicationForm
 from application_forms.models import ExhibitionApplication, QuizzesForStudentsApplication
@@ -51,13 +52,32 @@ class QuizzesApplicationView(View):
         return render(request, self.template_name, {'form': form})
 
 
-class ExhibitionTableView(ListView):
+class ExhibitionTableView(TemplateView):
     model = ExhibitionApplication
     template_name = 'tables/exhibition_table.html'
 
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
         queryset = ExhibitionApplication.objects.filter(completed=True).values()
-        return queryset
+        total_exhibition = ExhibitionApplication.objects.filter(completed=True).count()
+        total_cities = ExhibitionApplication.objects.filter(completed=True).values('city').count()
+        total_organizes = ExhibitionApplication.objects.filter(completed=True).values('who_is_organize').count()
+        total_places = ExhibitionApplication.objects.filter(completed=True).values('place').count()
+        total_visitors = ExhibitionApplication.objects.filter(completed=True).aggregate(Sum('visitors_number'))
+        total_reports = ExhibitionApplication.objects.filter(completed=True).values('link').count()
+        total = {
+            "cities": total_cities,
+            "organizes": total_organizes,
+            "places": total_places,
+            "visitors": total_visitors,
+            "exhibitions": total_exhibition,
+            "reports": total_reports,
+        }
+
+        context = {
+            'queryset': queryset,
+            'total': total,
+        }
+        return context
 
 
 class QuizzesTableView(ListView):
