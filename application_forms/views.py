@@ -65,10 +65,12 @@ class ExhibitionTableView(TemplateView):
         total_visitors = ExhibitionApplication.objects.filter(completed=True).aggregate(Sum('visitors_number'))
         total_reports = ExhibitionApplication.objects.filter(completed=True).values('link').count()
 
-        if total_visitors is not None:
+        #  Проверяем, что кол-во участников не None
+        if total_visitors['visitors_number__sum'] is not None:
             total_visitors = total_visitors
         else:
-            total_visitors = 0
+            total_visitors = '0'
+
         total = {
             "cities": total_cities,
             "organizes": total_organizes,
@@ -77,7 +79,6 @@ class ExhibitionTableView(TemplateView):
             "exhibitions": total_exhibition,
             "reports": total_reports,
         }
-
         context = {
             'queryset': queryset,
             'total': total,

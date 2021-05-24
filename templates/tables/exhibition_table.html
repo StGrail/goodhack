@@ -9,7 +9,7 @@
         организаторов - {{ total.organizes }},
         выставок - {{ total.exhibitions }},
         мест проведения - {{total.places }},
-        количество участников - {{ total.visitors.visitors_number__sum }},
+        количество участников - {{ total.visitors }},
         {% if total.links == None %} отчетов о выставках - 0
         {% else %}
         отчетов о выставках - {{ total.links }}
