@@ -64,6 +64,11 @@ class ExhibitionTableView(TemplateView):
         total_places = ExhibitionApplication.objects.filter(completed=True).values('place').count()
         total_visitors = ExhibitionApplication.objects.filter(completed=True).aggregate(Sum('visitors_number'))
         total_reports = ExhibitionApplication.objects.filter(completed=True).values('link').count()
+
+        if total_visitors is not None:
+            total_visitors = total_visitors
+        else:
+            total_visitors = 0
         total = {
             "cities": total_cities,
             "organizes": total_organizes,
