@@ -4,6 +4,17 @@
 {% block content %}
 
 <div class="card my-3">
+    <div class="my-2" style="padding: 10px; font-size: 18px">
+        <b style="font-size: 20px">Итог: </b>городов - {{ total.cities }},
+        организаторов - {{ total.organizes }},
+        выставок - {{ total.exhibitions }},
+        мест проведения - {{total.places }},
+        количество участников - {{ total.visitors.visitors_number__sum }},
+        {% if total.links == None %} отчетов о выставках - 0
+        {% else %}
+        отчетов о выставках - {{ total.links }}
+        {% endif %}
+    </div>
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
         <table class="table table-striped">
             <thead>
@@ -18,12 +29,14 @@
             </tr>
             </thead>
             <tbody>
-            {% for exhibition in object_list %}
             <tr>
+                {% for exhibition in queryset %}
                 <td class="text-center">{{ forloop.counter }}</td>
                 <td class="text-center">{{ exhibition.city }}</td>
                 {% if exhibition.who_is_organize == 'Активист' %}
-                <td class="text-center">{{ exhibition.who_is_organize }}<br>{{ exhibition.surname }} {{ exhibition.name }}</td>
+                <td class="text-center">{{ exhibition.who_is_organize }}<br>
+                    {{ exhibition.surname }} {{ exhibition.name }}
+                </td>
                 {% else %}
                 <td class="text-center">{{ exhibition.who_is_organize }}</td>
                 {% endif %}
@@ -34,7 +47,6 @@
             </tr>
             {% empty %}
             <tr>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
