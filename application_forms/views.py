@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.db.models import Sum
 from django.shortcuts import render, redirect
 from django.views import View
@@ -19,7 +20,19 @@ class ExhibitionApplicationView(View):
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
+            contacts = form['contacts']
+            print(contacts)
             form.save()
+            # additional_info, city, contacts, date, event_date, link, name, notes, place, surname, visitors_number, who_is_organize
+            # send_mail(
+            #     '«О, да, вторсырье!»',
+            #     f'Новая заявка на проведение выставки!\n'
+            #     f'Контакты для связи: {contacts}',
+            #     'from@example.com',
+            #     # ['mbn.spb@gmail.com'],
+            #     ['zzmrlol@gmail.com'],
+            #     fail_silently=False,
+            # )
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
             return redirect('index')
         else:
