@@ -6,13 +6,13 @@
 <form method="POST">
     {% csrf_token %}
     <div class="row justify-content-center mt-3">
-        <div class="card col-lg-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
+        <div class="card col-lg-9 bg-white mb-3 border-success" style="border-radius: 10px; background-size: 100%;">
             <img src="{% static 'img/main_logo.png'  %}" alt="image" style="background-size: cover;">
             <div class="row">
-                <div class="card-header bg-secondary text-center text-white" style="border-radius: 10px 10px 0px 0px;">
-                    Заявка на проведение выставки
+                <div class="card-header bg-white text-center text-success border-success" style="border-radius: 10px 10px 0px 0px;">
+                    <h3>Заявка на проведение викторины</h3>
                 </div>
-                <div class="my-3 text-center">«О, да, вторсырье!» — это эколого-просветительский проект, главная тема
+                <div class="my-3 text-center text-success">«О, да, вторсырье!» — это эколого-просветительский проект, главная тема
                     которого — отходы и их переработка. Девиз проекта: «Посмотри на отходы под другим углом: это не
                     мусор, это — вторсырье!» Одно из мероприятий проекта — выставка 40 плакатов на тему раздельного
                     сбора. Плакаты разбиваются на 4 блока: проблема отходов, борьба с отходами, переработка как решение,
@@ -20,8 +20,8 @@
                     юмором.
                 </div>
 
-                <div class="row justify-content-start">
-                    <div class="col-md-10 my-3 offset-md-1">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 my-3 offset-md-1">
                         <div class="field">
                             <input name="name" type="text" class="form-input my-2" id="name" placeholder="Имя"
                                    required>
@@ -32,8 +32,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <div class="field">
                                 <input name="surname" type="text" class="form-input my-2" id="surname"
                                        placeholder="Фамилия"
@@ -46,8 +46,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <div class="field">
                                 <input name="city" type="text" class="form-input my-2" id="city"
                                        placeholder="Город"
@@ -60,8 +60,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <div class="field">
                                 <input name="contacts" type="text" class="form-input my-2" id="vk/email"
                                        placeholder="Вк или email" required>
@@ -73,8 +73,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <label for="place" class="col-md-12 col-form-label mx-1 mt-1">Где хотите провести
                                 выставку?</label>
                             <div class="field">
@@ -88,8 +88,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-6 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <label for="who_is_organize"
                                    class="col-sm-6 col-form-label mx-1 mt-1 my-3">Организатор</label>
                             <div class="field">
@@ -105,11 +105,11 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <label for="date" class="col-md-12 col-form-label mx-1 mt-1">Когда хотите организовывать
                                 выставку?</label>
-                            <div class="field">
+                            <div class="field col-8">
                                 <input name="date" type="date" class="form-input my-2" id="date" required>
                                 <div class="line my-1"></div>
                                 <div class="invalid-tooltip mt-2">
@@ -119,8 +119,8 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-start">
-                        <div class="col-md-10 my-3 offset-md-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 my-3 offset-md-1">
                             <label for="notes" class="col-md-12 col-form-label mx-1 mt-1">Дополнительная
                                 информация.</label>
                             <textarea name="notes" type="text" class="form-control my-3" id="notes" rows="4"
