@@ -103,6 +103,31 @@ class QuizzesTableView(ListView):
     model = QuizzesForStudentsApplication
     template_name = 'tables/quizzes_table.html'
 
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
         queryset = QuizzesForStudentsApplication.objects.filter(completed=True).values()
-        return queryset
+        total_exhibition = QuizzesForStudentsApplication.objects.filter(completed=True).count()
+        total_cities = QuizzesForStudentsApplication.objects.filter(completed=True).values('city').count()
+        total_organizes = QuizzesForStudentsApplication.objects.filter(completed=True).values('who_is_organize').count()
+        total_places = QuizzesForStudentsApplication.objects.filter(completed=True).values('place').count()
+        total_visitors = QuizzesForStudentsApplication.objects.filter(completed=True).aggregate(Sum('visitors_number'))
+        total_reports = QuizzesForStudentsApplication.objects.filter(completed=True).values('link').count()
+
+        #  Проверяем, что кол-во участников не None
+        if total_visitors['visitors_number__sum'] is not None:
+            total_visitors = total_visitors
+        else:
+            total_visitors = '0'
+
+        total = {
+            "cities": total_cities,
+            "organizes": total_organizes,
+            "places": total_places,
+            "visitors": total_visitors,
+            "exhibitions": total_exhibition,
+            "reports": total_reports,
+        }
+        context = {
+            'queryset': queryset,
+            'total': total,
+        }
+        return context

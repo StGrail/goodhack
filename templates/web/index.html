@@ -2,69 +2,75 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="row justify-content-center mt-3">
-    <div class="card col-lg-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
-        <div class="card-text my-3">
-            «О, да, вторсырье!» — эколого-просветительский проект, главная тема которого — отходы и их
-            переработка.<br>
-            <b>Девиз проекта</b>: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!»<br>Благодаря
-            проекту мы показываем, что уже пора задуматься, сколько мусора производит каждый из нас, куда он
-            попадает после мусорного ведра, что происходит с ним на свалках, что такое переработка, зачем она
-            нужна и как начать разделять отходы уже сегодня.
+  <div class="row justify-content-center mt-3">
+    <div class="card col-lg-9 bg-white mb-5 border-success p-3" style="border-radius: 10px; background-size: 100%;">
+      <div class="card-header bg-white card-text my-3 border-success text-success">
+        «О, да, вторсырье!» — эколого-просветительский проект, главная тема которого — отходы и их
+        переработка.<br>
+        <b>Девиз проекта</b>: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!»<br>Благодаря
+        проекту мы показываем, что уже пора задуматься, сколько мусора производит каждый из нас, куда он
+        попадает после мусорного ведра, что происходит с ним на свалках, что такое переработка, зачем она
+        нужна и как начать разделять отходы уже сегодня.
+      </div>
+      <!--Photo Carousel-->
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'img/main_photos/photo_1.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_2.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_3.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_4.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_5.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_6.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_7.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_8.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_9.jpg' %}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/main_photos/photo_10.jpg' %}" class="d-block w-100">
+          </div>
         </div>
-        <hr>
-
-        <!--Photo Carousel-->
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'img/main_photos/photo_1.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_2.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_3.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_4.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_5.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_6.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_7.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_8.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_9.jpg' %}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'img/main_photos/photo_10.jpg' %}" class="d-block w-100">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Назад</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Вперед</span>
-            </button>
-        </div>
-        <hr>
-
-        <!--Participant's statistic-->
-        <p><b>Статистика</b>: мы провели {{ exhibitions }} выставок, {{ quizzes }} викторин в {{ cities }} городах и их
-            посетило {{ visitors }} участников.</p>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Назад</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Вперед</span>
+        </button>
+      </div>
     </div>
-</div>
-
+    <div class="card bg-white col-lg-9 justify-content-center my-0 border-success text-success" style="border-radius: 10px;">
+      <div class="card-header bg-white border-success text-center mb-3 text-success">
+        <h2 class="mb-3 mt-3">Наша статистика</h2>
+      </div>
+      <div class="card-body text-success">
+        <h3 class="card-title mb-2">Мы провели:</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-success">Выставок - {{ exhibitions }}</li>
+          <li class="list-group-item text-success">Викторин - {{ quizzes }}</li>
+          <li class="list-group-item text-success">Посетили городов - {{ cities }}</li>
+          <li class="list-group-item text-success">А всего нас посетило  - {{ visitors }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
