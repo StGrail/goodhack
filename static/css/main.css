@@ -10,17 +10,24 @@
   font-size: 14px !important;
 }
 a {
-  color: #198754;
+  color: #1a1e21;
   text-decoration: none;
   font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 a:hover {
-  color: inherit;
+  color: lightslategray;
   text-decoration: none;
 }
 
+.table-link {
+  color: #4fac64;
+}
+
+.table-link:hover {
+  color: #20c997;
+}
+
 .nav-font {
-  color: #198754;
   font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -73,7 +80,6 @@ a:hover {
 .footer-basic {
   padding:40px 0;
   background-color:#ffffff;
-  color:#198754;
 }
 
 .footer-basic ul {
@@ -126,7 +132,6 @@ a:hover {
   margin-top:15px;
   text-align:center;
   font-size:13px;
-  color:#198754;
   margin-bottom:0;
 }
 
@@ -137,7 +142,6 @@ a:hover {
 }
 .base-icon {
   position: absolute;
-  color: #198754;
   top: 7px;
   left: 7px;
   width: 25px;
