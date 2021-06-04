@@ -6,13 +6,13 @@
 <form method="POST">
     {% csrf_token %}
     <div class="row justify-content-center mt-3">
-        <div class="card col-9 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
+        <div class="card col-lg-9 col-md-9 col-sm-12 bg-white mb-3" style="border-radius: 10px; background-size: 100%;">
             <div class="row">
                 <div class="card-header bg-white text-center p-0" style="border-radius: 10px 10px 0px 0px;">
-                    <div class="col-12">
+                    <div class="col-12 py-1">
                       <img class="form-logo" src="{% static 'img/main_logo.jpg'  %}" alt="image" style="background-size: cover;">
                     </div>
-                    <h3>Заявка на проведение викторины</h3>
+                    <h6>Заявка на проведение викторины</h6>
                 </div>
                 <div class="my-3 text-center">В форме викторины заменить текст на: «О, да, вторсырье!» — это
                     эколого-просветительский проект, главная тема которого — отходы и их переработка. Девиз проекта:
