@@ -4,13 +4,8 @@
 {% block content %}
   <div class="row justify-content-center mt-3">
     <div class="card col-lg-9 bg-white mb-5 p-3" style="border-radius: 10px; background-size: 100%;">
-      <div class="card-header bg-white card-text my-3">
-        «О, да, вторсырье!» — эколого-просветительский проект, главная тема которого — отходы и их
-        переработка.<br>
-        <b>Девиз проекта</b>: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!»<br>Благодаря
-        проекту мы показываем, что уже пора задуматься, сколько мусора производит каждый из нас, куда он
-        попадает после мусорного ведра, что происходит с ним на свалках, что такое переработка, зачем она
-        нужна и как начать разделять отходы уже сегодня.
+      <div class="card-header bg-white card-text mb-4 text-center">
+        <h5>Эколого-просветительский проект «О, да, вторсырье!»</h5>
       </div>
       <!--Photo Carousel-->
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -57,18 +52,24 @@
           <span class="visually-hidden">Вперед</span>
         </button>
       </div>
+      <div class="card-text my-3">
+      Главная тема проекта — отходы и их переработка.<br>
+        <b>Девиз проекта</b>: «Посмотри на отходы под другим углом: это не мусор, это — вторсырье!».<br>
+      Благодаря проекту мы показываем, что уже пора задуматься, сколько мусора производит каждый из нас,
+      куда он попадает после мусорного ведра, что происходит с ним на свалках, что такое переработка,
+      зачем она нужна и как начать разделять отходы уже сегодня.
+        </div>
     </div>
     <div class="card bg-white col-lg-9 justify-content-center my-0" style="border-radius: 10px;">
       <div class="card-header bg-white text-center mb-3">
         <h2 class="mb-3 mt-3">Наша статистика</h2>
       </div>
       <div class="card-body">
-        <h3 class="card-title mb-2">Мы провели:</h3>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Выставок - {{ exhibitions }}</li>
-          <li class="list-group-item">Викторин - {{ quizzes }}</li>
-          <li class="list-group-item">Посетили городов - {{ cities }}</li>
-          <li class="list-group-item">А всего нас посетило  - {{ visitors }}</li>
+          <li class="list-group-item">Мы провели выставок - {{ exhibitions }}</li>
+          <li class="list-group-item">Мы провели викторин - {{ quizzes }}</li>
+          <li class="list-group-item">Города-участники проекта - {{ cities }}</li>
+          <li class="list-group-item">Аудитория проекта - {{ visitors }}</li>
         </ul>
       </div>
     </div>
