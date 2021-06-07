@@ -1,0 +1,167 @@
+/* Overriding styles */
+::-webkit-input-placeholder {
+   font-size: 14px!important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+      font-size: 14px!important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: 14px !important;
+}
+a {
+  color: #1a1e21;
+  text-decoration: none;
+  font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+a:hover {
+  color: lightslategray;
+  text-decoration: none;
+}
+
+.form-logo {
+  width: 100%;
+  max-height: 200px;
+}
+
+.table-link {
+  color: #4fac64;
+}
+
+.table-link:hover {
+  color: #20c997;
+}
+
+.nav-font {
+  font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+  font-weight: 500;
+}
+
+.form-input {
+  background: 0;
+  border: 0;
+  outline: none;
+  width: 80vw;
+  max-width: 400px;
+  font-size: 1.5em;
+  transition: padding 0.3s 0.2s ease;
+}
+.form-input:focus {
+  padding-bottom: 5px;
+}
+.form-input:focus + .line:after {
+  transform: scaleX(1);
+}
+.field {
+  position: relative;
+}
+.field .line {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: -8px;
+  background: #bdc3c7;
+}
+.field .line:after {
+  content: " ";
+  position: absolute;
+  float: right;
+  width: 100%;
+  height: 3px;
+  transform: scalex(0);
+  transition: transform 0.3s ease;
+  background: #1abc9c;
+}
+
+.nav-img-background {
+  width: 100%;
+  background-image: url("/static/img/background.png");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+/*FOOTER*/
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  margin-bottom:0;
+}
+
+.link_icon {
+  position: relative;
+  width: 30px;
+  height: 50px;
+}
+.base-icon {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 25px;
+  height: 25px;
+}
+
+.vk-icon {
+  background-image: url("/static/img/vk.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.insta-icon {
+  background-image: url("/static/img/insta.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
