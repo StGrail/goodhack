@@ -7,6 +7,7 @@ from django.views.generic import ListView, TemplateView
 
 from application_forms.forms import ExhibitionApplicationForm, QuizzesApplicationForm
 from application_forms.models import ExhibitionApplication, QuizzesForStudentsApplication
+from core.settings import EMAIL_HOST_USER, ADMIN_EMAIL
 
 
 class ExhibitionApplicationView(View):
@@ -20,16 +21,15 @@ class ExhibitionApplicationView(View):
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
-            contacts = form['contacts']
-            print(contacts)
             form.save()
-            send_mail(
-                '«О, да, вторсырье!»',
-                f'Новая заявка на проведение выставки!\n',
-                ['zzmrlol@gmail.com'],
-                ['zzmrlol@gmail.com'],
-                fail_silently=False,
-            )
+            subject = '«О, да, вторсырье!»'
+            message = 'Новая заявка на проведение выставки!\n' \
+                      f'Все заявки можно найти по адресу: ' \
+                      f'http://odavtorsyre.ru/admin/application_forms/exhibitionapplication'
+            recepient = 'zzmrlol@gmail.com'
+            send_mail(subject=subject, message=message,
+                      from_email=EMAIL_HOST_USER, recipient_list=[recepient],
+                      fail_silently=False)
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение недели.')
             return redirect('index')
         else:
@@ -52,6 +52,14 @@ class QuizzesApplicationView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
+            subject = '«О, да, вторсырье!»'
+            message = 'Новая заявка на проведение викторины!\n' \
+                      f'Все заявки можно найти по адресу: ' \
+                      f'http://odavtorsyre.ru/admin/application_forms/quizzesforstudentsapplication/'
+            recepient = ADMIN_EMAIL
+            send_mail(subject=subject, message=message,
+                      from_email=EMAIL_HOST_USER, recipient_list=[recepient],
+                      fail_silently=False)
             messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение недели.')
             return redirect('index')
         else:
