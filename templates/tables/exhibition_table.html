@@ -4,15 +4,20 @@
 {% block content %}
 
   <div class="card my-3">
-    <div class="my-2" style="padding: 10px; font-size: 18px">
-      {% if total.links == None %} отчетов о выставках - 0
-      {% else %}
-        отчетов о выставках - {{ total.links }}
-      {% endif %}
-    </div>
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
       <table class="table table-responsive">
         <thead>
+          <tr>
+            <th class="text-center">Итог</th>
+            <td class="text-center">{{ total.cities }}</td>
+            <td class="text-center">{{ total.organizes }}</td>
+            <td class="text-center">-</td>
+            <td class="text-center">{{ total.places }}</td>
+            <td class="text-center">{{ total.visitors }}</td>
+            <td class="text-center">{{ total.exhibitions }}</td>
+          </tr>
+        </thead>
+        <tfoot>
           <tr>
             <th class="text-center">№</th>
             <th class="text-center">Город</th>
@@ -20,12 +25,10 @@
             <th class="text-center">Дата выставки</th>
             <th class="text-center">Место выставки</th>
             <th class="text-center">Количество участников</th>
-            <th class="text-center">Отчет о выставке</th>
+            <th class="text-center">Отчет о<br> выставке</th>
           </tr>
-        </thead>
-        <tbody>
+          {% for exhibition in queryset %}
           <tr>
-            {% for exhibition in queryset %}
               <td class="text-center">{{ forloop.counter }}</td>
               <td class="text-center">{{ exhibition.city }}</td>
               {% if exhibition.who_is_organize == 'Активист' %}
@@ -38,7 +41,7 @@
               <td class="text-center">{{ exhibition.event_date }}</td>
               <td class="text-center">{{ exhibition.place }}</td>
               <td class="text-center">{{ exhibition.visitors_number }}</td>
-              <td>{{ exhibition.link }}</td>
+              <td class="text-center">{{ exhibition.link }}</td>
           </tr>
           {% empty %}
             <tr>
@@ -51,17 +54,6 @@
               </td>
             </tr>
           {% endfor %}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th class="text-center">Итог</th>
-            <td class="text-center">{{ total.cities }}</td>
-            <td class="text-center">{{ total.organizes }}</td>
-            <td class="text-center">-</td>
-            <td class="text-center">посетили мест - {{ total.places }}</td>
-            <td class="text-center">{{ total.visitors }}</td>
-            <td class="text-center">выставок - {{ total.exhibitions }}</td>
-          </tr>
         </tfoot>
       </table>
     </div>

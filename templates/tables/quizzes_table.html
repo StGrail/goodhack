@@ -4,15 +4,20 @@
 {% block content %}
 
   <div class="card my-3">
-    <div class="my-2" style="padding: 10px; font-size: 18px">
-      {% if total.links == None %} отчетов о викторинах - 0
-      {% else %}
-        отчетов о викторинах - {{ total.links }}
-      {% endif %}
-    </div>
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
       <table class="table table-responsive">
         <thead>
+          <tr>
+            <th class="text-center">Итог</th>
+            <td class="text-center">{{ total.cities }}</td>
+            <td class="text-center">{{ total.organizes }}</td>
+            <td class="text-center">-</td>
+            <td class="text-center">{{ total.places }}</td>
+            <td class="text-center">{{ total.visitors }}</td>
+            <td class="text-center">{{ total.exhibitions }}</td>
+          </tr>
+        </thead>
+        <tfoot>
           <tr>
             <th class="text-center">№</th>
             <th class="text-center">Город</th>
@@ -22,15 +27,13 @@
             <th class="text-center">Количество участников</th>
             <th class="text-center">Отчет о викторине</th>
           </tr>
-        </thead>
-        <tbody>
+          {% for quiz in queryset %}
           <tr>
-            {% for quiz in object_list %}
               <td class="text-center">{{ forloop.counter }}</td>
               <td class="text-center">{{ quiz.city }}</td>
               {% if quiz.who_is_organize == 'Активист' %}
-                <td class="text-center">
-                  {{ quiz.who_is_organize }}<br>{{ quiz.surname }} {{ quiz.name }}
+                <td class="text-center">{{ quiz.who_is_organize }}<br>
+                  {{ quiz.surname }} {{ quiz.name }}
                 </td>
               {% else %}
                 <td class="text-center">{{ quiz.who_is_organize }}</td>
@@ -38,7 +41,7 @@
               <td class="text-center">{{ quiz.event_date }}</td>
               <td class="text-center">{{ quiz.place }}</td>
               <td class="text-center">{{ quiz.visitors_number }}</td>
-              <td>{{ quiz.link }}</td>
+              <td class="text-center">{{ quiz.link }}</td>
           </tr>
           {% empty %}
             <tr>
@@ -51,17 +54,6 @@
               </td>
             </tr>
           {% endfor %}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th class="text-center">Итог</th>
-            <td class="text-center">{{ total.cities }}</td>
-            <td class="text-center">{{ total.organizes }}</td>
-            <td class="text-center">-</td>
-            <td class="text-center">посетили мест - {{ total.places }}</td>
-            <td class="text-center">{{ total.visitors }}</td>
-            <td class="text-center">викторин - {{ total.exhibitions }}</td>
-          </tr>
         </tfoot>
       </table>
     </div>

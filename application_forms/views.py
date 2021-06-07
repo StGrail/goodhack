@@ -25,9 +25,8 @@ class ExhibitionApplicationView(View):
             form.save()
             send_mail(
                 '«О, да, вторсырье!»',
-                f'Новая заявка на проведение выставки!\n'
-                'from@example.com',
-                ['mbn.spb@gmail.com'],
+                f'Новая заявка на проведение выставки!\n',
+                ['zzmrlol@gmail.com'],
                 ['zzmrlol@gmail.com'],
                 fail_silently=False,
             )
@@ -78,9 +77,9 @@ class ExhibitionTableView(TemplateView):
 
         #  Проверяем, что кол-во участников не None
         if total_visitors['visitors_number__sum'] is not None:
-            total_visitors = total_visitors
+            total_visitors = total_visitors['visitors_number__sum']
         else:
-            total_visitors = '0'
+            total_visitors = '-'
 
         total = {
             "cities": total_cities,
@@ -112,7 +111,7 @@ class QuizzesTableView(ListView):
 
         #  Проверяем, что кол-во участников не None
         if total_visitors['visitors_number__sum'] is not None:
-            total_visitors = total_visitors
+            total_visitors = total_visitors['visitors_number__sum']
         else:
             total_visitors = '0'
 
