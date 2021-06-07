@@ -23,17 +23,15 @@ class ExhibitionApplicationView(View):
             contacts = form['contacts']
             print(contacts)
             form.save()
-            # additional_info, city, contacts, date, event_date, link, name, notes, place, surname, visitors_number, who_is_organize
-            # send_mail(
-            #     '«О, да, вторсырье!»',
-            #     f'Новая заявка на проведение выставки!\n'
-            #     f'Контакты для связи: {contacts}',
-            #     'from@example.com',
-            #     # ['mbn.spb@gmail.com'],
-            #     ['zzmrlol@gmail.com'],
-            #     fail_silently=False,
-            # )
-            messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
+            send_mail(
+                '«О, да, вторсырье!»',
+                f'Новая заявка на проведение выставки!\n'
+                'from@example.com',
+                ['mbn.spb@gmail.com'],
+                ['zzmrlol@gmail.com'],
+                fail_silently=False,
+            )
+            messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение недели.')
             return redirect('index')
         else:
             print(form.errors)
@@ -55,7 +53,7 @@ class QuizzesApplicationView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение двух недель.')
+            messages.success(request, 'Ваша заявка была принята. С Вами свяжутся в течение недели.')
             return redirect('index')
         else:
             print(form.errors)
