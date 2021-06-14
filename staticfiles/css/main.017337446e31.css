@@ -44,3 +44,10 @@
   transition: transform 0.3s ease;
   background: #1abc9c;
 }
+
+.nav-img-background {
+  width: 100%;
+  background-image: url("/static/img/background.c04afd5a6969.png");
+  background-size: contain;
+  background-repeat: repeat;
+}

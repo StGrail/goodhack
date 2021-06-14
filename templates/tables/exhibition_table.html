@@ -3,50 +3,60 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="card my-3">
-    <div class="card-header">Описание</div>
+  <div class="card my-3">
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>№</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Город</th>
-                <th>Организатор</th>
-                <th>Дата выставки</th>
-                <th>Место выставки</th>
-                <th>Группа выставки</th>
-                <th>Количество посетителей</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for exhibition in object_list %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ exhibition.name }}</td>
-                <td>{{ exhibition.surname }}</td>
-                <td>{{ exhibition.city }}</td>
-                <td>{{ exhibition.who_is_organize}}</td>
-                <td>{{ exhibition.event_date }}</td>
-                <td>{{ exhibition.place }}</td>
-                <td>{{ exhibition.link }}</td>
-                <td>{{ exhibition.visitors_number }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan=5>Пока что мы не провели ни одной выставки.<br>
-                    Для подачи заявки на проведение выставки нажмите <a href="{% url 'exhibition_application_form' %}">сюда</a>
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th class="text-center">Итог</th>
+            <td class="text-center">{{ total.cities }}</td>
+            <td class="text-center">{{ total.organizes }}</td>
+            <td class="text-center">-</td>
+            <td class="text-center">{{ total.places }}</td>
+            <td class="text-center">{{ total.visitors }}</td>
+            <td class="text-center">{{ total.exhibitions }}</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Город</th>
+            <th class="text-center">Организатор</th>
+            <th class="text-center">Дата выставки</th>
+            <th class="text-center">Место выставки</th>
+            <th class="text-center">Количество участников</th>
+            <th class="text-center">Отчет о<br> выставке</th>
+          </tr>
+          {% for exhibition in queryset %}
+          <tr>
+              <td class="text-center">{{ forloop.counter }}</td>
+              <td class="text-center">{{ exhibition.city }}</td>
+              {% if exhibition.who_is_organize == 'Активист' %}
+                <td class="text-center">{{ exhibition.who_is_organize }}<br>
+                  {{ exhibition.surname }} {{ exhibition.name }}
                 </td>
+              {% else %}
+                <td class="text-center">{{ exhibition.who_is_organize }}</td>
+              {% endif %}
+              <td class="text-center">{{ exhibition.event_date }}</td>
+              <td class="text-center">{{ exhibition.place }}</td>
+              <td class="text-center">{{ exhibition.visitors_number }}</td>
+              <td class="text-center">{{ exhibition.link }}</td>
+          </tr>
+          {% empty %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colspan=5>Пока что мы не провели ни одной выставки.<br>
+                Для подачи заявки на проведение выставки нажмите
+                <a class="table-link" href="{% url 'exhibition_application_form' %}">сюда</a>
+              </td>
             </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+          {% endfor %}
+        </tfoot>
+      </table>
     </div>
-</div>
+  </div>
 
 {% endblock %}
