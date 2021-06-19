@@ -23,20 +23,18 @@ DJANGO_SECRET_KEY = DJANGO_SECRET_KEY
 DB_NAME = Название базы данных
 DB_USER = Пользователь базы данных
 DB_PASSWORD = Пароль базы данных
-DB_HOST = Хост базы данных
-DB_PORT = Порт базы данных
+
 ADMIN_EMAIL = email для получения писем о новых заявках
 ```
 ### Наполните базу данных и создайте админа
 ```
-cd django_site
 python manage.py migrate
 python manage.py createsuperuser
 ```
 
 ### Запустите сервер
 ```
-python3 manage.py runserver
+python manage.py runserver
 ```
 ### Перейдите на [локальный сервер](http://127.0.0.1:8000)
 
